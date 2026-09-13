@@ -1,0 +1,32 @@
+{
+  "_note": "CONTENT-601〜613 は候補・未承認（07_content_spec.md §8.3）。育児経験者への取材後に確定させる。ここはキーと機構の検証用であり、文言を確定させたものではない。",
+  "entries": [
+    { "key": "FailShallowSleep",  "text": "まだ、浅かった。" },
+    { "key": "FailAbruptMotion",  "text": "腕の中で、宙に浮いた。" },
+    { "key": "FailContactLost",   "text": "体が、急に離れた。" },
+    { "key": "FailSupportBroken", "text": "頭の下の腕が、引っかかった。" },
+    { "key": "FailUnknown",       "text": "……なんで。" },
+    { "key": "VoiceFuss",         "text": "ふぇ……" },
+    { "key": "VoiceCry",          "text": "うえええええええん！" },
+    { "key": "FiveCentimeters",   "text": "あと5cm" },
+    { "key": "MissionComplete",   "text": "MISSION COMPLETE" },
+    { "key": "BabyIsSleeping",    "text": "BABY IS SLEEPING" },
+    { "key": "BackToDaddy",       "text": "BACK TO DADDY." },
+    { "key": "GoodNight",         "text": "おやすみ。" },
+    { "key": "RetryAction",       "text": "もう一度" },
+    { "key": "TitleAction",       "text": "タイトルへ" },
+    { "key": "Paused",            "text": "一時停止（Escで再開）" },
+    { "key": "CameraHelp",        "text": "視点：  1 引き  ／  2 標準  ／  3 寄り（顔）  ／  4 高さを見る　　Q E わずかに角度　　ホイール 寄る/引く　　C 自動へ戻す" },
+    { "key": "HintRetry",         "text": "Rキーでもう一度" },
+    { "key": "HintRock",          "text": "マウスを左右にゆっくり往復させて揺らす。右クリックで止まる。" },
+    { "key": "HintRockGood",      "text": "いいペース。そのまま続けると寝入る。" },
+    { "key": "HintRockWait",      "text": "右クリックで止めて、じっと待つのも有効。" },
+    { "key": "HintHoldStill",     "text": "背中が布団に着いた。手を止めて、なじむまで待つ。" },
+    { "key": "HintLower",         "text": "マウスをゆっくり下へ。下ろす速さがそのまま腕の速さになる。" },
+    { "key": "HintWithdraw",      "text": "←／→で抜く腕を選び、スペースを押し続けてそっと抜く。" },
+    { "key": "HintBackAway",      "text": "Sキーを押し続けて、そーっと後ずさる。" },
+    { "key": "HintRockTooFast",   "text": "揺れが速い。もっと小さく、ゆっくり。" },
+    { "key": "HintRockTooSlow",   "text": "揺れが小さい。もう少し大きく左右に往復させる。" },
+    { "key": "HintLowerNudge",    "text": "マウスを手前（下）へ動かし続けると腕が下がる。" }
+  ]
+}

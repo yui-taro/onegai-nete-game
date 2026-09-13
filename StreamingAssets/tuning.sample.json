@@ -1,0 +1,124 @@
+{
+  "_note": "このファイルを tuning.json にコピーすると、再ビルドなしで数値を上書きできる（DD-405）。値は 2026-09-13 時点の既定値とそろえてある。欠けたキーは既定値のまま使われ、知らないキーは無視される。コメント（//）は書けない。★ここの値が古いと、コピーした時点で修正済みの不具合（腕が下りない・揺らしても寝ない・猶予が形だけ）が丸ごと戻る。Core/Tuning.cs を変えたら必ずこちらも合わせること。",
+  "schema_version": 1,
+
+  "session": {
+    "_note": "1プレイの長さはここで決まる。T-001〜T-008 の想定秒数に合わせる。",
+    "sleep_onset_d": 0.70,
+    "approach_seconds": 14.0,
+    "start_distance_m": 0.30,
+    "band30_m": 0.30,
+    "band15_m": 0.15,
+    "band5_m": 0.05,
+    "landing_contact_seconds": 3.0,
+    "withdraw_rate_per_second": 0.16,
+    "withdraw_done": 0.98,
+    "back_away_seconds": 10.0,
+    "back_away_speed": 0.22,
+    "fail_show_seconds": 1.25,
+    "retry_ready_seconds": 0.0,
+    "first_session_beat_seconds": 12.0
+  },
+
+  "state": {
+    "_note": "赤ちゃんの内部状態。正本は docs/02_design/baby_state_model.md §2。k_a と k_decay は比が難易度、大きさが反応の速さ。両方を同じ倍率で動かすこと（片方だけ動かすと、猶予窓の中で回復できなくなる／乱暴にしても泣かなくなる）。",
+    "w_j": 0.70,
+    "w_contact": 0.30,
+    "k_a": 0.87,
+    "k_decay": 0.30,
+    "k_up": 0.085,
+    "k_dn": 0.10,
+    "t_m": 1.5,
+    "j0": 18.0,
+    "reflex_min_interval": 1.1,
+    "provisional_j_ref": 20.0,
+    "provisional_withdraw_haste_jerk": 34.0,
+    "k_min": 0.85,
+    "k_max": 1.15,
+    "grace_min": 1.5,
+    "grace_max": 4.0,
+    "grace_threshold": 1.0,
+    "recover_threshold": 0.85,
+    "fairness_min_warning_seconds": 2.0,
+    "rock_speed_min": 0.030,
+    "rock_speed_max": 0.30,
+    "still_speed_max": 0.030
+  },
+
+  "input": {
+    "_note": "操作感。sensitivity は P-001 で ±50% 可変。mouse_m_per_count と dz_in を下げ戻すと腕が下りなくなる。kb_speed_ratio はキーボード操作時の速さ（arm_v_max に対する割合）。",
+    "dz_in": 0.010,
+    "expo_v": 0.70,
+    "expo_h": 0.35,
+    "min_cutoff_x": 1.0,
+    "min_cutoff_y": 1.0,
+    "beta": 0.007,
+    "d_cutoff": 1.0,
+    "v_ref": 0.35,
+    "a_ref": 3.0,
+    "tau_motor": 0.12,
+    "p_law": 0.80,
+    "w_v": 0.30,
+    "w_a": 0.40,
+    "w_j": 0.30,
+    "arm_v_max": 0.60,
+    "mouse_m_per_count": 0.0034,
+    "accel_jerk_halflife": 0.06,
+    "sensitivity": 1.0,
+    "kb_speed_ratio": 0.25
+  },
+
+  "motion": {
+    "_note": "腕の実運動。tremor_abrupt_cap は P-010（震え単独では絶対に反応が出ない）の担保に使う値。",
+    "halflife_arm": 0.08,
+    "halflife_head": 0.18,
+    "halflife_limb": 0.24,
+    "tremor_hz_base": 7.5,
+    "tremor_amp_max": 0.0015,
+    "tremor_abrupt_cap": 0.12,
+    "support_transition_halflife": 0.25,
+    "fatigue_rise_per_second": 0.055,
+    "fatigue_fall_per_second": 0.10,
+    "reach_x": 0.35,
+    "reach_y_up": 0.15,
+    "reach_y_down": 1.10
+  },
+
+  "tells": {
+    "_note": "enabled から外すとそのサインは出なくなる（DEC-007 は未決）。閾値は a に対する倍率で、個体差 k が掛かる。",
+    "enabled": ["T01", "T02", "T03", "T04", "T05", "T06", "T07", "T08", "T09"],
+    "max_channels": 3,
+    "t01_brow": 0.25,
+    "t02_mouth": 0.30,
+    "t03_hand_m": 0.35,
+    "t04_lid": 0.20,
+    "t05_breath": 0.20,
+    "t06_neck": 0.45,
+    "t08_eye_slit": 0.60,
+    "t04_twitch_per_second": 0.35
+  },
+
+  "presentation": {
+    "_note": "カメラと演出の間。camera_shake は FR-805 で OFF にできる（OFF で欠ける情報は無い）。",
+    "camera_mode": "fixed",
+    "face_ratio_start": 0.24,
+    "face_ratio_approach": 0.34,
+    "face_ratio_release": 0.44,
+    "dolly_percent": 0.0,
+    "camera_shake": true,
+    "provisional_face_size_m": 0.21,
+    "camera_follow_halflife": 0.35,
+    "camera_shake_amplitude_m": 0.004,
+    "provisional_camera_min_distance_m": 0.58,
+    "camera_back_away_pull": 0.55,
+    "fail_silence_seconds": 1.2,
+    "fail_text_delay_seconds": 0.9,
+    "success_gesture_seconds": 2.2,
+    "success_text_delay_seconds": 1.1
+  },
+
+  "content": {
+    "_note": "CONTENT-613「……なんで。」を出す割合。R08 は 10〜20% を仮置きしているが未決。",
+    "provisional_unknown_reason_ratio": 0.0
+  }
+}
